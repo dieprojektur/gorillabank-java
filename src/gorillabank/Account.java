@@ -1,6 +1,6 @@
 package gorillabank;
 
-public class BananaAccount {
+public class Account {
 
 	private int bananas = 0;
 	private int limit = 0;
@@ -8,11 +8,11 @@ public class BananaAccount {
 	/**
 	 * Create new account with initial in-payment of bananas 
 	 */
-	public BananaAccount(int bananas) {		
+	public Account(int bananas) {		
 		this.bananas = bananas; 
 	}
 		
-	public BananaAccount() {
+	public Account() {
 		// nothing to do here. 
 	}
 
