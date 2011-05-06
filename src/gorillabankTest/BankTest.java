@@ -29,14 +29,16 @@ public class BankTest {
 		
 		@Test
 		public void Capital_increases_after_pay_in() {
-			Account account = new Account(100);
+			Account account = bank.createAccount(100);
 			account.payIn(100);
 			assertEquals(bank.getCapital(), 200);
 		}
 		
 		@Test
 		public void Capital_decreases_after_pay_out() {
-			assertEquals(0,1); //Fails.
-		}
-				
+			Account account = bank.createAccount(100);
+			int initialCapital = bank.getCapital();
+			account.payOut(50);
+			assertEquals(bank.getCapital(), initialCapital - 50);
+		}				
 }

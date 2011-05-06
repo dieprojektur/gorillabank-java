@@ -2,18 +2,21 @@ package gorillabank;
 
 public class Account {
 
+	private Bank bank;
 	private int bananas = 0;
 	private int limit = 0;
 		
 	/**
 	 * Create new account with initial in-payment of bananas 
 	 */
-	public Account(int bananas) {		
-		this.bananas = bananas; 
+	protected Account(Bank bank, int bananas) {
+		this.bananas = bananas;
+		this.bank = bank;
+		bank.book(bananas);
 	}
 		
-	public Account() {
-		// nothing to do here. 
+	protected Account(Bank bank) {
+		this.bank = bank; 
 	}
 
 	/**
@@ -21,6 +24,7 @@ public class Account {
 	 */
 	public void payIn(int bananas) {
 		this.bananas += bananas;
+		bank.book(bananas);
 	}
 
 	/**
@@ -29,7 +33,8 @@ public class Account {
 	public boolean payOut(int bananas) {
 		int newBalance = this.bananas - bananas; 		
 		if (newBalance >= limit) { 
-			this.bananas = newBalance;
+			this.bananas -= bananas;
+			bank.book(-bananas);
 			return true;
 		}		
 		return false;
