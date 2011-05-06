@@ -26,13 +26,13 @@ public class BananaAccount {
 	/**
 	 * Pay out bananas 
 	 */
-	public int payOut(int bananas) {
+	public boolean payOut(int bananas) {
 		int newBalance = this.bananas - bananas; 		
 		if (newBalance >= limit) { 
 			this.bananas = newBalance;
-			return bananas;
+			return true;
 		}		
-		return getBalance();
+		return false;
 	}
 	
 	/***

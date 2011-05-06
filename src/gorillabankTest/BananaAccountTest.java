@@ -10,8 +10,7 @@ public class BananaAccountTest {
 	@Test
 	public void Can_open_account() {
 		BananaAccount account= new BananaAccount(100);
-		assertTrue(account != null);
-		// get balance checken
+		assertEquals(100, account.getBalance());		
 	}
 	
 	
@@ -45,10 +44,10 @@ public class BananaAccountTest {
 		assertEquals(90, account.getBalance());
 	}
 
-	@Test(expected = Exception.class)
+	@Test
 	public void Outpayment_beyond_limit_is_declined() {
 		BananaAccount account= new BananaAccount(100);
-		account.payOut(200);	
+		assertFalse(account.payOut(200));	
 	}
 	
 }
