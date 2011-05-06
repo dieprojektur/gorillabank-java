@@ -1,4 +1,14 @@
+/*
+   _____            _ _ _        ______             _    
+  |  __ \          (_) | |       | ___ \           | |   
+  | |  \/ ___  _ __ _| | | __ _  | |_/ / __ _ _ __ | | __
+  | | __ / _ \| '__| | | |/ _` | | ___ \/ _` | '_ \| |/ /
+  | |_\ \ (_) | |  | | | | (_| | | |_/ / (_| | | | |   < 
+   \____/\___/|_|  |_|_|_|\__,_| \____/ \__,_|_| |_|_|\_\ 
 
+   If Gorillas had a bank ...
+
+*/                                                      
 package gorillabank;
 
 public class Bank {
@@ -6,7 +16,7 @@ public class Bank {
 	private int capital = 0; 
 	
 	/***
-	 * @return Capital as sum of across all accounts 
+	 *  Get capital as sum across all accounts 
 	 */	
 	public int getCapital() {
 		return capital;	
@@ -19,10 +29,16 @@ public class Bank {
 		capital += bananas;		
 	}	
 	
+	/***
+	 * Created new account at this bank  
+	 */
 	public Account createAccount() {
 		return new Account(this);
 	}
 
+	/***
+	 * Created new account at this bank with initial in-payment  
+	 */
 	public Account createAccount(int bananas) {
 		return new Account(this, bananas);
 	}
