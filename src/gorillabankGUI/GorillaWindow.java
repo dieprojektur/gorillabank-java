@@ -1,4 +1,4 @@
-package gorillabankSping;
+package gorillabankGUI;
 
 import java.awt.EventQueue;
 
